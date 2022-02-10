@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/Furniture/kitchenCabinetCornerInner.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -2.29883, 0, 0, -2.29883, 0, 2.29883, -2.29883, 2.25, 0, -0.250225, 0, 0, -2.29883, 2.25, 2.29883, 0, 0, 2.29883, -2.14851, 2.25, 0, -0.15009, 0.290941, 0, 0, 0.290941, 0.149865, 0, 0, 0.25, 0, 2.25, 2.29883, 0, 2.25, 2.14829, 0, 2.09957, 0.049955, -0.05018, 2.09957, 0, -0.05018, 1.94915, 0, 0, 1.94915, 0.049955 )
+
+[node name="KitchenCabinetCorner" type="StaticBody"]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
+collision_mask = 31
+
+[node name="kitchenCabinetCornerInner" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )

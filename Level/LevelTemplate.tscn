@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Models/Architecture/floorFull.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://GUI/PauseMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Ammo/RefillArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Characters/Players/PlayerM.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -5, 0, 0, -5, 0.25, 0, 0, 0, 0, -5, 0, 5, -5, 0.25, 5, 0, 0.25, 0, 0, 0, 5, 0, 0.25, 5 )
+
+[node name="LevelTemplate" type="Spatial"]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="GUI" parent="." instance=ExtResource( 5 )]
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 15, 36, 0, -36 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Furniture" type="Node" parent="."]
+
+[node name="Spawners" type="Node" parent="."]
+
+[node name="Robots" type="Node" parent="."]
+
+[node name="Lighting" type="Node" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Lighting"]
+transform = Transform( 0.965926, 3.6999e-08, -0.258819, 0.12941, -0.866025, 0.482963, -0.224144, -0.5, -0.836516, -27.4145, 4, -24.4744 )
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.271859, 0 )
+
+[node name="RefillArea" parent="." instance=ExtResource( 3 )]
+
+[node name="RefillArea2" parent="." instance=ExtResource( 3 )]
+
+[node name="RefillArea3" parent="." instance=ExtResource( 3 )]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/Furniture/pottedPlant.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -0.42879, 2.57408, 1.09863, 0.101196, 3.26953, 0.49503, -0.958984, 3.26953, 0.49503, -0.857491, 1.21455, 0.742662, -0.42879, 1.21455, 0.990176, -8.95262e-05, 1.21455, 0.742662, -0.42879, 2.57408, -0.108337, -8.95262e-05, 1.21455, 0.247516, -0.857491, 1.21455, 0.247516, -0.766687, 0, 0.689851, -0.42879, 0, 0.885145, -0.0912053, 0, 0.689851, -0.42879, 1.21455, -0.000116505, -0.0912053, 0, 0.300208, -0.766687, 0, 0.300208, -0.42879, 0, 0.105269 )
+
+[node name="BigPlant" type="RigidBody"]
+collision_mask = 31
+mass = 12.0
+
+[node name="pottedPlant" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.275993, -0.333418, -0.329785 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.275993, -0.333418, -0.329785 )
+shape = SubResource( 1 )

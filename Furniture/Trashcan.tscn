@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/Furniture/trashcan.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0.223245, 1.83093, 0.557991, -0.223347, 1.83093, 0.557991, 0.223245, 1.7137, 0.557991, 0.518941, 1.97538, -6.19292e-05, 0.25942, 1.97538, 0.449382, -0.223347, 1.7137, 0.557991, -0.259623, 1.97538, 0.449382, -0.519043, 1.97538, -6.19292e-05, 0.25942, 0, 0.449382, 0.518941, 0, -6.19292e-05, 0.25942, 1.97538, -0.449506, 0.353006, 2.13867, -6.19292e-05, 0.232391, 0.135446, -0.612305, 0.176503, 2.13867, 0.305601, -0.519043, 0, -6.19292e-05, -0.259623, 0, 0.449382, -0.176605, 2.13867, 0.305601, -0.353108, 2.13867, -6.19292e-05, -0.259623, 1.97538, -0.449506, -0.232492, 0.135446, -0.612305, 0.232391, 0, -0.612305, 0.176503, 2.13867, -0.305725, -0.232492, 0, -0.612305, -0.176605, 2.13867, -0.305725 )
+
+[node name="Trashcan" type="RigidBody"]
+collision_mask = 31
+mass = 12.0
+
+[node name="trashcan" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
+shape = SubResource( 1 )

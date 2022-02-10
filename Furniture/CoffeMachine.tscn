@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/Furniture/kitchenCoffeeMachine.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -5.96046e-08, 0, 0.410129, -0.236816, 0.887207, 1.2002, -0.236816, 0.292407, 1.2002, -0.236816, 0, 1.14157, -0.236816, 0, 0, -0.236816, 0.782212, 0.235669, -0.236816, 0.887207, 0.352446, -0.710449, 0.887207, 1.2002, -0.710449, 0.292407, 1.2002, -0.710449, 0, 1.14157, -0.710449, 0, 0, -0.710449, 0.782212, 0.235669, -0.710449, 0.887207, 0.352446, -0.947266, 0, 0.410129 )
+
+[node name="CoffeeMachine" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02888, 0, 0 )
+collision_mask = 31
+mass = 20.0
+
+[node name="kitchenCoffeeMachine" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457029, -0.103301, -0.42955 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457029, -0.103301, -0.42955 )
+shape = SubResource( 1 )

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/Furniture/Small Table.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -1, 0.867576, -1, -0.846711, -0.757324, -0.871182, -1, 0.867576, 1, -1, 0.999902, -1, 1, 0.867576, -1, -0.846711, -0.757324, 0.870987, 0.846515, -0.757324, -0.871182, -1, 0.999902, 1, 1, 0.867576, 1, -0.967306, 1.0332, -0.967306, 1, 0.999902, -1, 0.846515, -0.757324, 0.870987, -0.967306, 1.0332, 0.96711, 1, 0.999902, 1, 0.96711, 1.0332, -0.967306, 0.96711, 1.0332, 0.96711 )
+
+[node name="SmallTable" type="RigidBody"]
+collision_mask = 31
+mass = 12.0
+
+[node name="Small Table" type="MeshInstance" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
+shape = SubResource( 1 )

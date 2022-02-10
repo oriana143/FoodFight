@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/Furniture/kitchenSink.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( 0, 2.24999, 2.25, 0, 2.24999, 2.09957, -1.01576, 2.44922, 1.80753, -1.01576, 2.44706, 1.82713, -1.01576, 2.44323, 1.84652, -1.01576, 2.43747, 1.86502, -1.01576, 2.42956, 1.88264, -2.14844, 2.24999, 2.25, 0, 0, 2.25, -1.01576, 2.44922, 1.50778, 0, 2.09943, 0, -1.16612, 2.44922, 1.80753, -1.16612, 2.44706, 1.82713, -1.16612, 2.44323, 1.84652, -1.16612, 2.43747, 1.86502, -1.16612, 2.42956, 1.88264, -2.14844, 2.24999, 2.09957, -2.14844, 0, 2.25, 0, 0, 0.19976, -1.16612, 2.44922, 1.50778, -1.01576, 2.44706, 1.48818, -1.01576, 2.44323, 1.46858, 0, 1.94911, 0, -2.14844, 2.09943, 0, -2.14844, 0, 0.19976, 0, 0.290809, 0.09977, -1.16612, 2.44706, 1.48818, -1.16612, 2.44323, 1.46858, -1.38883, 1.5135, 0, -2.14844, 1.94911, 0, -2.14844, 0.290809, 0.09977, -1.78924, 1.5135, 0 )
+
+[node name="KitchenSink" type="StaticBody"]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
+collision_mask = 31
+
+[node name="kitchenSink" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
