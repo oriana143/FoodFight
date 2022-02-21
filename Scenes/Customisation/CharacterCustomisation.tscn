@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Characters/Players/PlayerF.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Characters/Players/PlayerM.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Customisation/CustomisationUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Materials/blue.material" type="Material" id=4]
+[ext_resource path="res://Scenes/Customisation/CharacterCustomisation.gd" type="Script" id=5]
+
+[sub_resource type="CylinderMesh" id=1]
+
+[sub_resource type="PlaneMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0, 0, 0, 1 )
+metallic_specular = 1.0
+
+[sub_resource type="SphereMesh" id=7]
+
+[sub_resource type="SpatialMaterial" id=10]
+params_cull_mode = 1
+albedo_color = Color( 0.603922, 0.937255, 1, 1 )
+
+[node name="CharacterCustomisation" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="ArmatureM" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.19806, 0, -0.269232 )
+
+[node name="ArmatureF" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276692, -0.0216742, -0.173822 )
+
+[node name="Scenery" type="Node" parent="."]
+
+[node name="Podium" type="MeshInstance" parent="Scenery"]
+transform = Transform( 1, 0, 0, 0, 0.105337, 0, 0, 0, 1, 0, -0.120896, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 4 )
+
+[node name="Floor" type="MeshInstance" parent="Scenery"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.20082, -2.01698 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 9 )
+
+[node name="Wall" type="MeshInstance" parent="Scenery"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 10 )
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="SpotLight" type="SpotLight" parent="Lights"]
+transform = Transform( 0.822572, 0.391615, 0.412326, 0.350093, -0.920129, 0.17549, 0.448118, -7.24513e-08, -0.893974, 0.672162, 2.15889, -1.40394 )
+light_color = Color( 1, 0.737255, 0.239216, 1 )
+light_energy = 0.5
+
+[node name="SpotLight2" type="SpotLight" parent="Lights"]
+transform = Transform( 0.813409, 0.136446, -0.565463, 0.186971, -0.981843, 0.0320368, -0.550824, -0.131784, -0.824151, -1.8712, 1.90856, -1.86565 )
+light_energy = 0.0
+
+[node name="SpotLight3" type="SpotLight" parent="Lights"]
+transform = Transform( 0.964327, 0.0536536, -0.25922, 0.0154594, 0.966158, 0.257487, 0.264263, -0.252309, 0.930863, -0.671073, 2.38199, 4.94352 )
+light_color = Color( 0.0235294, 0.254902, 0.698039, 1 )
+light_energy = 5.578
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, -8.74227e-08, 6.09335e-14, -8.58685e-08, 0.982222, 0.187724, -1.64114e-08, 0.187724, -0.982222, 0.261218, 1.8973, -2.44738 )
+current = true
+
+[node name="CustomisationUI" parent="." instance=ExtResource( 3 )]
+
+[connection signal="item_selected" from="CustomisationUI/Controls/CharacterSelect" to="." method="_on_CharacterSelect_item_selected"]
+[connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer/LeftButton" to="." method="change_material" binds= [ "Left" ]]
+[connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer/RightButton" to="." method="change_material" binds= [ "Right" ]]
+[connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer2/StartButton" to="." method="_on_StartButton_pressed"]
+
+[editable path="CustomisationUI"]

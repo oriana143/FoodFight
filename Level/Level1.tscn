@@ -557,6 +557,22 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, 1.
 [node name="Robot" parent="Robots" index="0" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13, 0.5, 3 )
 
+[node name="RobotArmature" parent="Robots/Robot" index="4"]
+bones/1/bound_children = [  ]
+bones/2/bound_children = [  ]
+bones/7/bound_children = [  ]
+bones/8/bound_children = [  ]
+bones/9/bound_children = [  ]
+bones/10/bound_children = [  ]
+bones/22/bound_children = [  ]
+bones/23/bound_children = [  ]
+bones/24/bound_children = [  ]
+bones/37/bound_children = [  ]
+bones/38/bound_children = [  ]
+bones/39/bound_children = [  ]
+bones/41/bound_children = [  ]
+bones/42/bound_children = [  ]
+
 [node name="BoneAttachment" parent="Robots/Robot/RobotArmature" index="1"]
 transform = Transform( -0.0564262, 0.0120857, -0.998333, 0.0680234, 0.99765, 0.00823249, 0.996087, -0.0674447, -0.0571156, 0.666745, 2.43728, -0.0168432 )
 
@@ -607,8 +623,30 @@ anims/RESET = SubResource( 2 )
 [node name="Hurt" parent="Robots/Robot" index="7"]
 unit_db = 0.0
 
+[node name="Life2" parent="Robots/Robot/Lives" index="0"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 2.30716, 0 )
+
+[node name="Life3" parent="Robots/Robot/Lives" index="1"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1, 2.30716, 0 )
+
 [node name="Robot2" parent="Robots" index="1" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.5, 0, -8 )
+
+[node name="RobotArmature" parent="Robots/Robot2" index="4"]
+bones/1/bound_children = [  ]
+bones/2/bound_children = [  ]
+bones/7/bound_children = [  ]
+bones/8/bound_children = [  ]
+bones/9/bound_children = [  ]
+bones/10/bound_children = [  ]
+bones/22/bound_children = [  ]
+bones/23/bound_children = [  ]
+bones/24/bound_children = [  ]
+bones/37/bound_children = [  ]
+bones/38/bound_children = [  ]
+bones/39/bound_children = [  ]
+bones/41/bound_children = [  ]
+bones/42/bound_children = [  ]
 
 [node name="BoneAttachment" parent="Robots/Robot2/RobotArmature" index="1"]
 transform = Transform( -0.0564262, 0.0120857, -0.998333, 0.0680234, 0.99765, 0.00823249, 0.996087, -0.0674447, -0.0571156, 0.666745, 2.43728, -0.0168432 )
@@ -659,6 +697,12 @@ anims/RESET = SubResource( 4 )
 
 [node name="Hurt" parent="Robots/Robot2" index="7"]
 unit_db = 0.0
+
+[node name="Life2" parent="Robots/Robot2/Lives" index="0"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 2.30716, 0 )
+
+[node name="Life3" parent="Robots/Robot2/Lives" index="1"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1, 2.30716, 0 )
 
 [node name="Player" parent="." index="8"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.0455, 0.3, -7.44809 )

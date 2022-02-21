@@ -67,5 +67,5 @@ func check_lives():
 		die()
 
 func die():
-	queue_free()
+	get_tree().change_scene("res://GUI/GameOver.tscn")
 
