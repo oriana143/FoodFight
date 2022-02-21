@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scenes/Characters/Players/PlayerF.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Characters/Players/PlayerM.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-F.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-M.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Customisation/CustomisationUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Materials/blue.material" type="Material" id=4]
 [ext_resource path="res://Scenes/Customisation/CharacterCustomisation.gd" type="Script" id=5]
+[ext_resource path="res://SFX/intro.ogg" type="AudioStream" id=6]
 
 [sub_resource type="CylinderMesh" id=1]
 
@@ -23,11 +24,11 @@ albedo_color = Color( 0.603922, 0.937255, 1, 1 )
 [node name="CharacterCustomisation" type="Spatial"]
 script = ExtResource( 5 )
 
-[node name="ArmatureM" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.19806, 0, -0.269232 )
-
 [node name="ArmatureF" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276692, -0.0216742, -0.173822 )
+transform = Transform( -0.003, 0, -4.52987e-10, 0, 0.003, 0, 4.52987e-10, 0, -0.003, 0, 0, 0 )
+
+[node name="ArmatureM" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.2, -3.01992e-08, 1.32005e-15, 0, -8.74228e-09, -0.2, 3.01992e-08, -0.2, 8.74228e-09, 0, 0, 0 )
 
 [node name="Scenery" type="Node" parent="."]
 
@@ -63,10 +64,18 @@ light_color = Color( 0.0235294, 0.254902, 0.698039, 1 )
 light_energy = 5.578
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -1, -8.74227e-08, 6.09335e-14, -8.58685e-08, 0.982222, 0.187724, -1.64114e-08, 0.187724, -0.982222, 0.261218, 1.8973, -2.44738 )
+transform = Transform( -1, -8.74227e-08, 6.09335e-14, -8.58685e-08, 0.982222, 0.187724, -1.64114e-08, 0.187724, -0.982222, 0.261218, 1.77138, -2.17987 )
 current = true
 
 [node name="CustomisationUI" parent="." instance=ExtResource( 3 )]
+
+[node name="CharacterSelect" parent="CustomisationUI/Controls" index="1"]
+items = [ "Freya", null, false, 0, null, "Frey", null, false, 1, null ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+autoplay = true
 
 [connection signal="item_selected" from="CustomisationUI/Controls/CharacterSelect" to="." method="_on_CharacterSelect_item_selected"]
 [connection signal="pressed" from="CustomisationUI/Controls/HBoxContainer/LeftButton" to="." method="change_material" binds= [ "Left" ]]

@@ -11,7 +11,7 @@ var action_state = 0 # -1 is throw, 0 is move/idle, +1 is reload
 var lives = 3
 var character_type
 
-const PROJECTILE_SPEED = 50
+const PROJECTILE_SPEED = 60
 
 enum CHARACTER_TYPES {player, npc}
 

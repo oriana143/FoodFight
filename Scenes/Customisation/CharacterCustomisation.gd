@@ -3,10 +3,11 @@ extends Spatial
 var materials_list = {}
 var current_material = 0
 var current_player = 0
-
+var selected_material = 0
 
 
 func _ready():
+	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	materials_list = FileGrabber.get_files("res://Scenes/Customisation/PlayerMaterials/")
 	current_player = "Female"
@@ -30,11 +31,13 @@ func change_material(direction):
 	
 	select_material(direction, materials_count)
 	
-	var Male = $ArmatureM/Armature/Mesh
-	var Female = $ArmatureF/Armature/Mesh
+	var Male = $ArmatureM/Mesh
+	var Female = $ArmatureF/Mesh 
 	
-	Male.set_surface_material(0, load(materials_list[current_material]))
-	Female.set_surface_material(0, load(materials_list[current_material]))
+	selected_material = load(materials_list[current_material])
+	
+	Male.set_surface_material(0, selected_material)
+	Female.set_surface_material(0, selected_material)
 	
 func select_material(direction, materials_count):
 	if direction == "Right":
@@ -50,4 +53,6 @@ func select_material(direction, materials_count):
 	
 
 func _on_StartButton_pressed():
+	Customisation.Player_materials = selected_material
+	Customisation.Player_character = current_player
 	get_tree().change_scene("res://Level/Level1.tscn")

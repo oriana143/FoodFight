@@ -556,6 +556,10 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.6, 1.
 
 [node name="Robot" parent="Robots" index="0" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13, 0.5, 3 )
+collision_mask = 31
+
+[node name="Forward" parent="Robots/Robot" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1 )
 
 [node name="RobotArmature" parent="Robots/Robot" index="4"]
 bones/1/bound_children = [  ]
@@ -632,6 +636,9 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1, 2.30716, 0 )
 [node name="Robot2" parent="Robots" index="1" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.5, 0, -8 )
 
+[node name="Forward" parent="Robots/Robot2" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1 )
+
 [node name="RobotArmature" parent="Robots/Robot2" index="4"]
 bones/1/bound_children = [  ]
 bones/2/bound_children = [  ]
@@ -704,17 +711,17 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 2.30716, 0 )
 [node name="Life3" parent="Robots/Robot2/Lives" index="1"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1, 2.30716, 0 )
 
-[node name="Player" parent="." index="8"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.0455, 0.3, -7.44809 )
-
-[node name="RefillArea" parent="." index="9"]
+[node name="RefillArea" parent="." index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40732, 0.796653, -8.45985 )
 
-[node name="RefillArea2" parent="." index="10"]
+[node name="RefillArea2" parent="." index="9"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6616, 0.779932, 3.05379 )
 
-[node name="RefillArea3" parent="." index="11"]
+[node name="RefillArea3" parent="." index="10"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.99448, 0.771213, -7.23838 )
+
+[node name="PlayerStartPosition" parent="." index="11"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.6316, 0.855515, -7.03396 )
 
 [editable path="Robots/Robot"]
 [editable path="Robots/Robot/RobotArmature"]

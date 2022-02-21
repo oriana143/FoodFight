@@ -3,7 +3,7 @@
 [ext_resource path="res://Models/Architecture/floorFull.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://GUI/PauseMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Ammo/RefillArea.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Characters/Players/PlayerM.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SFX/finalbattle.ogg" type="AudioStream" id=4]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Level/GameState.gd" type="Script" id=6]
 
@@ -41,11 +41,15 @@ shape = SubResource( 1 )
 transform = Transform( 0.965926, 3.6999e-08, -0.258819, 0.12941, -0.866025, 0.482963, -0.224144, -0.5, -0.836516, -27.4145, 4, -24.4744 )
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.271859, 0 )
-
 [node name="RefillArea" parent="." instance=ExtResource( 3 )]
 
 [node name="RefillArea2" parent="." instance=ExtResource( 3 )]
 
 [node name="RefillArea3" parent="." instance=ExtResource( 3 )]
+
+[node name="PlayerStartPosition" type="Position3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Characters/Players/Armatures/Armature-F.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Characters/Players/PlayerTemplate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Characters/Players/AnimationTree.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=6]
 resource_name = "Run"
@@ -249,12 +248,13 @@ tracks/33/keys = PoolRealArray( 0, 1, 509.15, 25178, 229.435, 0.115787, -0.72398
 
 [node name="Player" instance=ExtResource( 2 )]
 
+[node name="Forward" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1 )
+
 [node name="Armature" parent="." index="8" instance=ExtResource( 1 )]
-transform = Transform( -0.004, 0, -3.49691e-10, 0, 0.004, 0, 3.49691e-10, 0, -0.004, 0, -0.0118477, 0 )
+transform = Transform( 0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 0.171032, 0 )
 
 [node name="AnimationPlayer" parent="Armature" index="1"]
 anims/Run = SubResource( 6 )
-
-[node name="AnimationTree" parent="Armature" index="2" instance=ExtResource( 3 )]
 
 [editable path="Armature"]

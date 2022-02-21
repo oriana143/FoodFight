@@ -1,0 +1,165 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Fonts/Kenney Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://PauseMenu.tres" type="Theme" id=2]
+[ext_resource path="res://GUI/IntroScreen.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Ammo/models/Cookie.mesh" type="ArrayMesh" id=4]
+[ext_resource path="res://Scenes/Ammo/models/Burger.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://Scenes/Ammo/models/Hotdog.mesh" type="ArrayMesh" id=6]
+[ext_resource path="res://Scenes/Ammo/models/doughnut.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://Scenes/Ammo/models/Milkshake.mesh" type="ArrayMesh" id=8]
+[ext_resource path="res://SFX/interlude.ogg" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_align_y = true
+flag_rotate_y = true
+gravity = Vector3( 0, 2, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+scale = 0.3
+
+[node name="IntroScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+margin_left = 337.0
+margin_top = 62.0
+margin_right = 687.0
+margin_bottom = 538.0
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_right = 350.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 1 )
+text = "Food Fight"
+align = 1
+
+[node name="Label2" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 350.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 2 )
+text = "Music By Metaruka"
+align = 1
+
+[node name="ViewportContainer" type="ViewportContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 350.0
+margin_bottom = 392.0
+rect_min_size = Vector2( 300, 300 )
+
+[node name="Viewport" type="Viewport" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport"]
+current = true
+
+[node name="Particles" type="Node" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport"]
+
+[node name="Burger" type="Particles" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport/Particles"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.163492, 0, -3 )
+amount = 15
+lifetime = 2.0
+process_material = SubResource( 3 )
+draw_pass_1 = ExtResource( 5 )
+
+[node name="Doughnut" type="Particles" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport/Particles"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.163492, 0, -3 )
+amount = 15
+lifetime = 2.0
+process_material = SubResource( 3 )
+draw_pass_1 = ExtResource( 7 )
+
+[node name="Cookie" type="Particles" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport/Particles"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.163492, 0, -3 )
+amount = 10
+lifetime = 2.0
+process_material = SubResource( 3 )
+draw_pass_1 = ExtResource( 4 )
+
+[node name="Hotdog" type="Particles" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport/Particles"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.163492, 0, -3 )
+amount = 15
+lifetime = 2.0
+process_material = SubResource( 3 )
+draw_pass_1 = ExtResource( 6 )
+
+[node name="Milkshake" type="Particles" parent="ColorRect/CenterContainer/VBoxContainer/ViewportContainer/Viewport/Particles"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.163492, 0, -3 )
+amount = 15
+lifetime = 2.0
+process_material = SubResource( 3 )
+draw_pass_1 = ExtResource( 8 )
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+margin_top = 396.0
+margin_right = 350.0
+margin_bottom = 476.0
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 1.0
+margin_right = 348.0
+margin_bottom = 80.0
+custom_constants/vseparation = 20
+custom_constants/hseparation = 7
+columns = 2
+
+[node name="PlayLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer"]
+margin_right = 310.0
+margin_bottom = 30.0
+text = "Let's Fight!"
+align = 1
+
+[node name="PlayButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 317.0
+margin_right = 347.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 30, 30 )
+
+[node name="QuitLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer"]
+margin_top = 50.0
+margin_right = 310.0
+margin_bottom = 80.0
+text = "Get me out of here!"
+align = 1
+
+[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer"]
+margin_left = 317.0
+margin_top = 50.0
+margin_right = 347.0
+margin_bottom = 80.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/CenterContainer/GridContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

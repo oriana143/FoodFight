@@ -11,12 +11,13 @@ config_version=4
 [application]
 
 config/name="Food Fight"
-run/main_scene="res://Level/Level1.tscn"
+run/main_scene="res://GUI/IntroScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 FileGrabber="*res://Utility/FileGrabber.gd"
+Customisation="*res://Customisation.gd"
 
 [display]
 

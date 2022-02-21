@@ -6,13 +6,14 @@
 
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
+collision_mask = 31
 script = ExtResource( 2 )
 
 [node name="MeshInstance" parent="." index="0"]
 visible = false
 
 [node name="Camera" type="Camera" parent="." index="2"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.49522, -5 )
+transform = Transform( -1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, 0, 2.49522, -4.26085 )
 doppler_tracking = 2
 current = true
 
