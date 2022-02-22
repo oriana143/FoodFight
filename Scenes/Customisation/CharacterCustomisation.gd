@@ -3,7 +3,7 @@ extends Spatial
 var materials_list = {}
 var current_material = 0
 var current_player = 0
-var selected_material = 0
+var selected_material 
 
 
 func _ready():

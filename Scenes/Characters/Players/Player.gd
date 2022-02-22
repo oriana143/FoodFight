@@ -21,7 +21,6 @@ const ACTION_RESET_RATE = 0.05
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	character_type = CHARACTER_TYPES.player
 	if Customisation.Player_materials != null:
 		$Armature/Mesh.set_surface_material(0, Customisation.Player_materials)
 	update_lives()

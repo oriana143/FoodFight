@@ -9,13 +9,14 @@ var can_refill = false
 var action_state = 0 # -1 is throw, 0 is move/idle, +1 is reload
 
 var lives = 3
-var character_type
+var character_type = CHARACTER_TYPES.player
 
 const PROJECTILE_SPEED = 60
 
 enum CHARACTER_TYPES {player, npc}
 
 func _ready():
+	character_type = CHARACTER_TYPES.player
 	food_types = FileGrabber.get_files("res://Projectiles/FoodTypes/")
 	randomize()
 
